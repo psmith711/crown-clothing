@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { signInAuthUserWithEmailAndPassword, auth } from '../../utils/firebase';
+import {
+  signInAuthUserWithEmailAndPassword,
+  auth,
+  signInWithGooglePopup,
+} from '../../utils/firebase';
 import FormInput from '../form-input/forminput';
 import Button from '../button/button';
 
@@ -57,9 +61,14 @@ const SignInForm = () => {
           value={password}
           name='password'
         />
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button type='submit'>Sign In</Button>
-          <Button buttonType='google'>Google Signin</Button>
+          <Button
+            type='button'
+            buttonType='google'
+            onClick={signInWithGooglePopup}>
+            Google Signin
+          </Button>
         </div>
       </form>
     </div>
