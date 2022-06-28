@@ -1,10 +1,16 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import './navigation.styles.scss';
+import { UserContext } from '../../contexts/user.context';
+import { signUserOut } from '../../utils/firebase';
+import { async } from '@firebase/util';
 
 //Fragment is an element from react that is a placeholder. Essentially returns nothing
 const Navigation = () => {
+  const {currentUser } = useContext(UserContext);
+  
+  
   return (
     <Fragment>
       <div className='navigation'>
@@ -16,9 +22,12 @@ const Navigation = () => {
           <Link className='nav-link' to='/shop'>
             SHOP
           </Link>
-          <Link className='nav-link' to='/sign-in'>
-            SIGN IN
-          </Link>
+          {currentUser ? (<span className='nav-link' onClick={signUserOut}>SIGN OUT</span>): (
+            <Link className='nav-link' to='/sign-in'>
+              SIGN IN
+            </Link>
+          )}
+          
         </div>
       </div>
       <Outlet />

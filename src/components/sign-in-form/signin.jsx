@@ -3,6 +3,7 @@ import {
   signInAuthUserWithEmailAndPassword,
   auth,
   signInWithGooglePopup,
+  createUserDocument,
 } from '../../utils/firebase';
 import FormInput from '../form-input/forminput';
 import Button from '../button/button';
@@ -32,12 +33,16 @@ const SignInForm = () => {
         email,
         password
       );
-      console.log(user);
       resetFormFields();
+      createUserDocument(user);
     } catch (e) {
       alert(e);
     }
   };
+
+  const signInWithGoogle = async () => {
+    const {user} = await signInWithGooglePopup();
+  }
 
   return (
     <div className='sign-up-container'>
