@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   signInAuthUserWithEmailAndPassword,
-  auth,
   signInWithGooglePopup,
   createUserDocument,
 } from '../../utils/firebase';
@@ -41,7 +40,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const {user} = await signInWithGooglePopup();
+    await signInWithGooglePopup();
   }
 
   return (
@@ -71,7 +70,7 @@ const SignInForm = () => {
           <Button
             type='button'
             buttonType='google'
-            onClick={signInWithGooglePopup}>
+            onClick={signInWithGoogle}>
             Google Signin
           </Button>
         </div>

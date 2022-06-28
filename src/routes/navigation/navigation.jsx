@@ -4,7 +4,6 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import './navigation.styles.scss';
 import { UserContext } from '../../contexts/user.context';
 import { signUserOut } from '../../utils/firebase';
-import { async } from '@firebase/util';
 
 //Fragment is an element from react that is a placeholder. Essentially returns nothing
 const Navigation = () => {

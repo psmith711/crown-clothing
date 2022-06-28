@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
-  signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -14,7 +13,6 @@ import {
   doc,
   getDoc,
   setDoc,
-  connectFirestoreEmulator,
 } from 'firebase/firestore';
 //firebase connection strings
 const firebaseConfig = {
