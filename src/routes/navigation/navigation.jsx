@@ -9,7 +9,7 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown';
 
 //Fragment is an element from react that is a placeholder. Essentially returns nothing
 const Navigation = () => {
-  const {currentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   
   
   return (
